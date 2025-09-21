@@ -354,3 +354,29 @@ main {
 .footer-line > div > button > img {
   background-color: none;
 }
+
+/*  */
+
+@media (max-width: 430px) {
+  nav {
+    margin-left: 0px;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 70px;
+  }
+
+  body {
+    width: 100%;
+  }
+  main {
+    margin: 0px;
+    width: 100%;
+  }
+  .footer-line {
+    width: 350px;
+    margin-top: 40px;
+  }
+  .footer-line > div > button {
+    background-color: transparent;
+  }
+}
