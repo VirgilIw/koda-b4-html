@@ -516,3 +516,99 @@ main {
 .footer-line > div > button > img {
   background-color: none;
 }
+
+@media (max-width: 430px) {
+  nav {
+    flex-direction: column;
+    width: 210px;
+    margin-bottom: 70px;
+  }
+
+  main {
+    margin: 0px 0px;
+    width: 27%;
+  }
+  .content1 {
+    margin-left: -20px;
+    width: 400px;
+  }
+  .content1 > .content1-child2 > button {
+    width: 110px;
+    margin-right: 60px;
+  }
+
+  .content1 > .content1-child2 > button :nth-child(2) {
+    font-size: 10px;
+    margin-left: -1px;
+  }
+  .content2 > .content2-child1 :nth-child(1) {
+    font-size: 15px;
+    margin-left: -20px;
+  }
+
+  .content2 > .content2-child2 > button :nth-child(1) {
+    font-size: 10px;
+  }
+  .content2 > .content2-child2 > button :nth-child(2) {
+    width: 14px;
+    height: 14px;
+  }
+  .content2 > .content2-child2 > button {
+    width: 100px;
+    height: 40px;
+    margin-right: -30px;
+  }
+  /* footer */
+  .footer-line {
+    width: 300px;
+  }
+
+  .content4 > .content4-wrap > .content4-child1 :nth-child(4) {
+    margin-left: 10px;
+  }
+  .content4 > .content4-wrap > .content4-child2 > button {
+    margin-left: -40px;
+    background-color: transparent;
+  }
+  .content5 > .content5-wrap > .content5-child1 :nth-child(1),
+  .content5 > .content5-wrap > .content5-child1 :nth-child(2),
+  .content6 > .content5-wrap > .content5-child1 :nth-child(2) {
+    font-size: 12px;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: -20px;
+  }
+
+  .content6 > .content5-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content5 > .content5-wrap > .content5-child1 :nth-child(3) {
+    font-size: 10px;
+    height: 10px;
+    margin-left: 10px;
+    margin-bottom: 50px;
+  }
+  .content6 > div > div > .btn {
+    background-color: transparent;
+  }
+  .content6 > div > div {
+  }
+  .content6 > .content5-wrap > .content5-child1 > .juni {
+    font-size: 8px;
+  }
+  .content6 > .content5-wrap > .content5-child1 > .juli {
+    font-size: 10px;
+    margin-top: 5px;
+  }
+  .content5-child2 {
+    margin-bottom: 15px;
+  }
+  .content5-child2 > #btn5 {
+    margin-bottom: -50px;
+  }
+}
