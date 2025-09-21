@@ -364,10 +364,24 @@ main {
 /*  */
 
 @media screen and (max-width: 768px) {
+  .content1 {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-left: 0px;
+    width: 70%;
+  }
+  main {
+    width: 90%;
+  }
+  .content2 {
+    margin-top: 1px;
+  }
   nav {
     justify-content: start;
     flex-direction: column;
-    margin-left: 20px;
+    margin-left: 30px;
     width: 350px;
     margin-bottom: 60px;
   }
@@ -375,12 +389,35 @@ main {
     font-size: 10px;
   }
   .footer-line {
-    width: 350px;
-    margin-top: 40px;
+    width: 330px;
+    margin-top: 80px;
   }
   .content4 > .content4-wrap > .content4-child1 > h1,
   .content5 > .content5-wrap > .content5-child1 > h1,
   .content6 > .content6-wrap > .content6-child1 > h1 {
-    font-size: 12px;
+    font-size: 10px;
+  }
+
+  .content6 > .content6-wrap > .content6-child1 > p {
+    font-size: 8px;
+    width: 50px;
+    margin-top: 15px;
+  }
+
+  .content5 > .content5-wrap > .content5-child1 > p {
+    font-size: 8px;
+    width: 50px;
+    margin-right: -100px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    display: flex;
+  }
+
+  .content4 > .content4-wrap > .content4-child1 > h4 {
+    font-size: 10px;
+    width: 50px;
+    margin-right: -100px;
+    margin-top: 15px;
+    margin-bottom: 20px;
   }
 }
