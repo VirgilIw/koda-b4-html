@@ -389,8 +389,9 @@ main {
     font-size: 10px;
   }
   .footer-line {
-    width: 330px;
+    width: 290px;
     margin-top: 80px;
+    margin-right: 5px;
   }
   .content4 > .content4-wrap > .content4-child1 > h1,
   .content5 > .content5-wrap > .content5-child1 > h1,
@@ -406,7 +407,7 @@ main {
 
   .content5 > .content5-wrap > .content5-child1 > p {
     font-size: 8px;
-    width: 50px;
+    width: 30px;
     margin-right: -100px;
     margin-top: 15px;
     margin-bottom: 25px;
