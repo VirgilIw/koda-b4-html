@@ -334,3 +334,113 @@ main {
   gap: 20px;
   text-decoration: line-through;
 }
+
+@media (max-width: 430px) {
+  nav {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 70%;
+    margin-left: 0px;
+    width: 350px;
+  }
+
+  nav > .nav-kiri {
+    margin-top: 50px;
+  }
+  nav > .nav-kanan {
+    margin-bottom: 20px;
+  }
+  main {
+    width: 28%;
+    margin-left: 0px;
+  }
+
+  .child1 :nth-child(1) {
+    font-size: 14px;
+    margin-left: -10px;
+  }
+
+  .child1 :nth-child(2) {
+    font-size: 12px;
+    margin-left: -10px;
+  }
+
+  .child1 :nth-child(3) {
+    font-size: 13px;
+    margin-left: -10px;
+  }
+  .footer {
+    width: 300px;
+  }
+  .child2 > .btn1 {
+    margin-left: -40px;
+    width: 120px;
+    height: 40px;
+    padding-bottom: 10px;
+  }
+  .child2 > .btn1 > img {
+    width: 16px;
+    height: 16px;
+  }
+  .child2 > .btn1 > p {
+    font-size: 10px;
+  }
+
+  .child2 > .btn3,
+  .child2 > .btn4,
+  .child2 > .btn5 {
+    background-color: transparent;
+    margin-right: 10px;
+  }
+  .child2 > .btn2 {
+    margin-left: -30px;
+    width: 110px;
+    height: 30px;
+  }
+  .child2 > .btn2 > span {
+    font-size: 10px;
+    margin-bottom: -6px;
+  }
+  .child2 > .btn2 > img {
+    width: 14px;
+    height: 14px;
+  }
+  .sort {
+    margin-top: 18px;
+  }
+  .circle1 :nth-child(1) > :nth-child(3) {
+    font-size: 10px;
+  }
+  .circle1 :nth-child(2) {
+    padding-left: 10px;
+  }
+  .circle1 > .tugas {
+    margin-left: 11px;
+  }
+
+  .circle1 :nth-child(3) > :nth-child(3) {
+    font-size: 10px;
+  }
+
+  .circle1 :nth-child(1) > :nth-child(2),
+  .circle1 :nth-child(4) > :nth-child(2),
+  .circle1 :nth-child(3) > :nth-child(2) {
+    font-size: 10px;
+  }
+  .circle1 :nth-child(4) > :nth-child(3) {
+    font-size: 10px;
+    width: 40px;
+  }
+  .circle1 :nth-child(4) > :nth-child(1) {
+    margin-left: -20px;
+  }
+  .footer3 {
+    margin-left: -79px;
+  }
+
+  .footer4 {
+    margin-left: -89px;
+  }
+}
