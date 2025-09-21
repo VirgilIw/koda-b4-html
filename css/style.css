@@ -363,13 +363,12 @@ main {
 
 /*  */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 430px) {
   .content1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
-    margin-left: 0px;
     width: 70%;
   }
   main {
@@ -384,6 +383,7 @@ main {
     margin-left: 30px;
     width: 350px;
     margin-bottom: 60px;
+    margin-left: 10px;
   }
   .content4-wrap {
     font-size: 10px;
