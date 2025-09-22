@@ -7,8 +7,8 @@ body {
   font-family: "Poppins", sans-serif;
 }
 :root {
-  --color-primary: #ff5f26;
-  --color-secondary: #ffffff;
+  --color-primary: #6b3f69;
+  --color-secondary: #d5e5d5;
 }
 
 nav {
@@ -230,7 +230,7 @@ main {
 .content4 > div > div :first-child {
   padding-top: 2px;
   border: none;
-  background-color: #ffffff;
+  background-color: transparent;
   cursor: pointer;
 }
 
@@ -239,6 +239,9 @@ main {
   font-weight: 500;
   line-height: 100%;
   letter-spacing: 0%;
+}
+.content4 .content4-child3 {
+  font-size: 12px;
 }
 
 .content4 > div > div :nth-child(3) {
@@ -260,6 +263,7 @@ main {
   font-size: 14px;
   color: #7a7f83;
   margin-bottom: -22px;
+  background-color: transparent;
 }
 .content4 :last-child > p {
   margin: -10px 0px -2px 101px;
@@ -291,8 +295,19 @@ main {
 .content5 > .content5-wrap > .content5-child1,
 .content6 > .content6-wrap > .content6-child1 {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   gap: 10px;
 }
+.content5 .content5-wrap .content5-child2 :first-child {
+  background-color: transparent;
+}
+
+.content5 .content5-wrap .content5-child1 :first-child {
+  background-color: transparent;
+}
+
 .content5 > div > div :nth-child(2),
 .content6 > div > div :nth-child(2) {
   font-size: 18px;
@@ -309,20 +324,16 @@ main {
 .content5 > .content5-wrap > .content5-child1 > button,
 .content6 > .content6-wrap > .content6-child1 > button {
   border: none;
-  background-color: #ffffff;
+  background-color: transparent;
   margin-left: -7px;
   cursor: pointer;
-}
-.content5 > .content5-wrap > .content5-child1 :nth-child(2),
-.content6 .content6-wrap > .content6-child1 :nth-child(2) {
-  margin-top: 22px;
 }
 
 .content5 > .content5-wrap > .content5-child2 > button,
 .content6 > .content6-wrap > .content6-child2 > button {
   margin-right: 45px;
   border: none;
-  background-color: #ffffff;
+  background-color: transparent;
   cursor: pointer;
 }
 
@@ -345,7 +356,7 @@ main {
 .footer-line > div > button {
   transform: rotate(-90deg);
   border: none;
-  background-color: #ffffff;
+  background-color: transparent;
   margin-top: 21px;
   width: 24px;
   height: 24px;
