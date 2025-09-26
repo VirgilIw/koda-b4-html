@@ -8,124 +8,193 @@
       href="https://fonts.googleapis.com/css2?family=Bitcount+Single+Ink:wght@100..900&family=Great+Vibes&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playwrite+ES:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
   </head>
-  <body>
-    <header>
-      <nav>
-        <!-- logo kiri -->
-        <div class="nav-kiri">
-          <img src="/assets/img/Logo.svg" alt="" />
-        </div>
-        <!-- logo kiri -->
+  <body class="w-[100%] h-screen bg-[#FFFFFF] scroll-smooth">
+    <form action="" class="bg-[#D1D3D4]">
+      <header class="bg-[#E2A16F]">
+        <nav
+          class="flex flex-col items-center m-0 md:flex-row md: justify-between md:px-8 md:py-5"
+        >
+          <!-- logo kiri -->
+          <div class="nav-kiri">
+            <a href="/">
+              <img src="/assets/img/Logo.svg" alt="logo" />
+            </a>
+          </div>
+          <!-- logo kiri -->
 
-        <!-- logo kanan -->
-        <div class="nav-kanan">
-          <ul>
-            <li>
-              <img src="/assets/img/Notification.svg" alt="" />
-            </li>
-            <li>
-              <img src="/assets/img/Group 30.png" alt="" />
-            </li>
-            <li>
-              <img src="/assets/img/Frame 43.png" alt="" />
-            </li>
-            <!-- logo kanan -->
-          </ul>
+          <!-- logo kanan -->
+          <div class="">
+            <ul class="flex items-center gap-2">
+              <li>
+                <img src="/assets/img/Notification.svg" alt="notif" />
+              </li>
+              <li>
+                <img src="/assets/img/Group 30.png" alt="person" />
+              </li>
+              <li>
+                <img src="/assets/img/Frame 43.png" alt="name" />
+              </li>
+              <!-- logo kanan -->
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <main
+        class="mx-auto md:w-[700px] md:rounded-[12px] shadow-2xl h-[550px] bg-[#FFF0DD] md:mt-10"
+      >
+        <div
+          class="flex items-center text-center justify-center flex-col px-10 pt-8 md:flex-row md:justify-between md:text-start md:gap-[10px] font-[500] gap-[10px]"
+        >
+          <div>
+            <p class="text-[#FF5F26] text-[12px] md:text-[16px]">MY TASKS</p>
+            <p class="md:text-[24px]">To Do List</p>
+            <p class="text-[#7A7F83] font-[400] md:text-[16px]">
+              Buat list tugas harian saya
+            </p>
+          </div>
+          <div>
+            <button
+              class="flex bg-[#FF5F26] items-center gap-2 p-2 rounded-[60px] hover:bg-[#FF864F] w-[120px] md:w-[183px] md: justify-center md:px-[15px] py-[12px] md:border-[1px]"
+              id="add-task"
+            >
+              <img
+                src="/assets/img/Plus.png"
+                alt="plus-ikon"
+                class="w-[14px] h-[14px] md:w-[24px] md:h-[24px]"
+              />
+              <p class="text-[#FFFFFF] text-[10px] md:text-[16px]">
+                Tambah Tugas
+              </p>
+            </button>
+          </div>
         </div>
-      </nav>
-    </header>
-    <main>
-      <div class="content1">
-        <div class="content1-child1">
-          <p>MY TASKS</p>
-          <p>To Do List</p>
-          <p>Buat list tugas harian saya</p>
+        <!--  -->
+        <div
+          class="flex flex-col items-center md:justify-between md:flex-row mt-3 mb-4 px-10"
+        >
+          <div>
+            <p class="text-[#7A7F83]">Sort By</p>
+          </div>
+          <div class="flex justify-center">
+            <button
+              class="flex flex-col items-center justify-center mt-2 bg-[#FFFFFF] border border-[#FF5F26] rounded-[50px] text-[#FF5F26] w-[100px] h-[50px] md:flex md:flex-row md:w-[136px]"
+            >
+              <p class="text-[14px]">By Tanggal</p>
+              <img
+                src="/assets/img/Arrow - Down 2 oren .png"
+                alt="arrow-down"
+              />
+            </button>
+          </div>
         </div>
-        <div class="content1-child2">
-          <button>
-            <img src="/assets/img/Plus.png" alt="plus-ikon" />
-            <p>Tambah Tugas</p>
-          </button>
+        <!--  -->
+        <div class="flex flex-col px-8 bg-[#F5F5F5] h-[106px]" id="content3">
+          <div class="p-1">
+            <label>
+              <input
+                type="radio"
+                class="w-[24px] h-[24px] accent-orange-500"
+                id="inputNew"
+              />
+              <span>Masukan nama tugas</span>
+            </label>
+          </div>
+          <div class="flex flex-col md:gap-[10px] h-[50px]">
+            <!--  -->
+            <label class="flex gap-2">
+              <img src="assets/img/menu.png" alt="multi-line" />
+              <input
+                type="text"
+                placeholder="Deskripsi Tugas (Optional)"
+                class="bg-transparent outline-none text-[14px] w-[213px]"
+              />
+            </label>
+            <label class="flex gap-2">
+              <img src="assets/img/Calendar.svg" alt="" />
+              <input
+                type="text"
+                id="tanggal"
+                placeholder="Tanggal & Waktu"
+                class="bg-transparent outline-none"
+              />
+            </label>
+          </div>
         </div>
-      </div>
-      <!--  -->
-      <div class="content2">
-        <div class="content2-child1">
-          <p>Sort By</p>
-        </div>
-        <div class="content2-child2">
-          <button>
-            <p>By Tanggal</p>
-            <img src="/assets/img/Arrow - Down 2.png" alt="arrow-down" />
-          </button>
-        </div>
-      </div>
-      <!--  -->
 
-      <!--  -->
-      <div class="content4">
-        <div class="content4-wrap">
-          <div class="content4-child1">
-            <button>
-              <img src="/assets/img/Rectangle 21.png" alt="circle" />
-            </button>
-            <h1>Product Design</h1>
-            <h4>Hari ini</h4>
+        <!--  -->
+        <div class="px-8">
+          <div class="content4-wrap">
+            <div class="flex items-center gap-3">
+              <button>
+                <img src="/assets/img/Rectangle 21.png" alt="circle" />
+              </button>
+              <label>
+                <p>Product Design</p>
+              </label>
+              <span>Hari ini</span>
+            </div>
+            <div class="content4-child2">
+              <button>
+                <img src="/assets/img/Arrow - Down 2.png" alt="panah-turun" />
+              </button>
+            </div>
           </div>
-          <div class="content4-child2">
-            <button>
-              <img src="/assets/img/Arrow - Down 2.png" alt="panah-turun" />
-            </button>
+          <div class="content4-child3"></div>
+        </div>
+        <div class="content5">
+          <div class="content5-wrap">
+            <div class="content5-child1">
+              <button>
+                <img src="/assets/img/Rectangle 21.png" alt="circle" />
+              </button>
+              <h1>Development</h1>
+              <p>15 Juni 2022</p>
+            </div>
+            <div class="content5-child2">
+              <button>
+                <img src="/assets/img/Arrow - Down 2.png" alt="panah-turun" />
+              </button>
+            </div>
           </div>
         </div>
-        <div class="content4-child3">
-          <p>Tugas untuk design tim</p>
-        </div>
-      </div>
-      <div class="content5">
-        <div class="content5-wrap">
-          <div class="content5-child1">
-            <button>
-              <img src="/assets/img/Rectangle 21.png" alt="" />
-            </button>
-            <h1>Development</h1>
-            <p>15 Juni 2022</p>
-          </div>
-          <div class="content5-child2">
-            <button>
-              <img src="/assets/img/Arrow - Down 2.png" alt="panah-turun" />
-            </button>
+        <!--  -->
+        <div class="content6">
+          <div class="content6-wrap">
+            <div class="content6-child1">
+              <button>
+                <img src="/assets/img/Rectangle 21.png" alt="circle" />
+              </button>
+              <h1>Launching Wazwez Website</h1>
+              <p>20 Juni 2022</p>
+            </div>
+            <div class="content6-child2">
+              <button>
+                <img src="/assets/img/Arrow - Down 2.png" alt="panah-turun" />
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <!--  -->
-      <div class="content6">
-        <div class="content6-wrap">
-          <div class="content6-child1">
+        <!--  -->
+        <div class="footer-line">
+          <div class="foot-child">
             <button>
-              <img src="/assets/img/Rectangle 21.png" alt="" />
+              <img src="/assets/img/Arrow - Down 2.png" alt="arrow-up" />
             </button>
-            <h1>Launching Wazwez Website</h1>
-            <p>20 Juni 2022</p>
-          </div>
-          <div class="content6-child2">
-            <button>
-              <img src="/assets/img/Arrow - Down 2.png" alt="panah-turun" />
-            </button>
+            <p>Terselesaikan 3 (tugas)</p>
           </div>
         </div>
-      </div>
-      <!--  -->
-      <div class="footer-line">
-        <div class="foot-child">
-          <button>
-            <img src="/assets/img/Arrow - Down 2.png" alt="arrow-up" />
-          </button>
-          <p>Terselesaikan 3 (tugas)</p>
-        </div>
-      </div>
-    </main>
+      </main>
+      <footer>TESTING</footer>
+    </form>
+    <script src="script.js"></script>
   </body>
 </html>
