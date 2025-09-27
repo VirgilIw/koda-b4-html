@@ -1,48 +1,31 @@
-const inputNew = $("#inputNew");
 const content3 = $("#content3");
+const addTaskBtn = $("#add-task");
+const editTask = $("#edit-task");
+const byTanggal = $("#byTanggal");
+const isiBtnTanggal = $("#isiBtnTanggal");
+const panahTanggal = $("#panahTanggal");
 
-//
-let clicked = 0;
+// klik tambah tugas
+addTaskBtn.on("click", (e) => {
+  e.preventDefault();
+  content3.toggleClass("hidden block");
+});
 
-const addNewTask = () => {
-  inputNew.on("focus", (e) => {
-    e.preventDefault();
-    clicked++;
-    if (clicked === 1) {
-      content3.removeClass("hidden").addClass("block");
-    } else if (clicked === 2) {
-      content3.addClass("hidden");
-    } else {
-      content3.removeClass("hidden").addClass("block");
-      clicked = 0;
-    }
-  });
-};
+byTanggal.on("click", (e) => {
+  e.preventDefault();
+  byTanggal.toggleClass("text-gray-400");
+  //
+  if (panahTanggal.attr("src") === "assets/img/Arrow - Up 2.png") {
+    panahTanggal.attr("src", "assets/img/Arrow - Down 2 oren .png");
+  } else {
+    panahTanggal.attr("src", "assets/img/Arrow - Up 2.png");
+  }
+  //
+  byTanggal.toggleClass("border-gray-300");
+  isiBtnTanggal.toggleClass("hidden block");
+});
 
-let checked = false;
-
-const button1 = function () {
-  const createTask = $("#create-task");
-  const btn1 = $("#btn1");
-
-  createTask.on("click", (e) => {
-    e.preventDefault();
-
-    if (checked === false) {
-      btn1.attr("src", "assets/img/circle.png");
-      btn1.attr("alt", "btn-checked");
-      checked = true;
-    } else {
-      btn1.attr("src", "assets/img/Rectangle 21.png");
-      btn1.attr("alt", "circle-unchecked");
-      checked = false;
-    }
-  });
-};
-
-button1();
-addNewTask();
-
+// moment
 const updateWaktu = () => {
   const date = $("#tanggal");
   const now = moment().format("DD/MM/YYYY HH:mm:ss");

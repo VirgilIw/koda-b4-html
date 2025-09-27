@@ -16,101 +16,141 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="w-[100%] h-screen bg-[#FFFFFF] scroll-smooth">
-    <form action="" class="bg-[#D1D3D4]">
-      <header class="bg-[#E2A16F]">
-        <nav
-          class="flex flex-col items-center m-0 md:flex-row md: justify-between md:px-8 md:py-5"
-        >
-          <!-- logo kiri -->
-          <div class="nav-kiri">
-            <a href="/">
-              <img src="/assets/img/Logo.svg" alt="logo" />
-            </a>
-          </div>
-          <!-- logo kiri -->
+  <body class="w-[100%] h-screen bg-[#FFFFFF] scroll-smooth font-[Poppins]">
+    <header class="bg-[#E2A16F]">
+      <nav
+        class="flex flex-col items-center m-0 md:flex-row md:justify-between md:px-8 md:py-5"
+      >
+        <!-- logo kiri -->
+        <div class="nav-kiri">
+          <a href="/">
+            <img src="/assets/img/Logo.svg" alt="logo" />
+          </a>
+        </div>
 
-          <!-- logo kanan -->
-          <div class="">
-            <ul class="flex items-center gap-2">
-              <li>
-                <img src="/assets/img/Notification.svg" alt="notif" />
-              </li>
-              <li>
-                <img src="/assets/img/Group 30.png" alt="person" />
-              </li>
-              <li>
-                <img src="/assets/img/Frame 43.png" alt="name" />
-              </li>
-              <!-- logo kanan -->
-            </ul>
-          </div>
-        </nav>
-      </header>
-      <main
-        class="mx-auto md:w-[700px] md:rounded-[12px] shadow-2xl h-[550px] bg-[#FFF0DD] md:mt-10"
+        <!-- logo kanan -->
+        <div>
+          <ul class="flex items-center gap-2">
+            <li>
+              <img src="/assets/img/Notification.svg" alt="notif" />
+            </li>
+            <li>
+              <img src="/assets/img/Group 30.png" alt="person" />
+            </li>
+            <li>
+              <img src="/assets/img/Frame 43.png" alt="name" />
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main
+      class="relative mx-auto md:w-[700px] md:rounded-[12px] shadow-2xl h-[100vh] flex flex-col justify-between md:mt-10"
+    >
+      <div
+        class="flex items-center text-center justify-center flex-col px-10 pt-8 md:flex-row md:justify-between md:text-start md:gap-[10px] font-[500] gap-[10px]"
+      >
+        <div>
+          <p class="text-[#FF5F26] text-[12px] md:text-[16px]">MY TASKS</p>
+          <p class="md:text-[24px]">To Do List</p>
+          <p class="text-[#7A7F83] font-[400] md:text-[16px]">
+            Buat list tugas harian saya
+          </p>
+        </div>
+        <div>
+          <button
+            class="flex bg-[#FF5F26] items-center gap-2 p-2 rounded-[60px] hover:bg-[#FF864F] w-[150px] md:w-[200px] md:justify-center md:px-[15px] py-[12px] md:border-[1px]"
+            id="add-task"
+          >
+            <img
+              src="/assets/img/Plus.png"
+              alt="plus-ikon"
+              class="w-[18px] h-[18px] md:w-[24px] md:h-[24px]"
+            />
+            <p class="text-[#FFFFFF] text-[14px] md:text-[16px]">
+              Tambah Tugas
+            </p>
+          </button>
+        </div>
+      </div>
+
+      <!-- Sort By -->
+      <div
+        class="flex flex-col items-center px-10 mt-3 mb-4 md:flex-row md:justify-between md:items-center"
+      >
+        <div>
+          <p class="text-[#7A7F83]">Sort By</p>
+        </div>
+        <div class="flex justify-center">
+          <button
+            id="byTanggal"
+            class="flex items-center justify-center mt-2 bg-[#FFFFFF] border border-[#FF5F26] rounded-[40px] md:rounded-[50px] text-[#FF5F26] w-[100px] h-[50px] md:flex-row md:w-[136px]"
+          >
+            <p class="text-[12px]">By Tanggal</p>
+            <img
+              src="/assets/img/Arrow - Down 2 oren .png"
+              alt="arrow-down"
+              id="panahTanggal"
+            />
+          </button>
+        </div>
+      </div>
+      <div
+        id="isiBtnTanggal"
+        class="hidden absolute top-[260px] right-[25px] py-6 md:py-2 w-[380px] md:h-[140px] md:top-[200px] md:right-[30px] md:w-[250px] p-4 border border-[#CCCED2] rounded-[8px] bg-white shadow-md cursor-pointer"
       >
         <div
-          class="flex items-center text-center justify-center flex-col px-10 pt-8 md:flex-row md:justify-between md:text-start md:gap-[10px] font-[500] gap-[10px]"
+          class="flex justify-between items-center p-2 hover:bg-gray-100 rounded-lg"
         >
-          <div>
-            <p class="text-[#FF5F26] text-[12px] md:text-[16px]">MY TASKS</p>
-            <p class="md:text-[24px]">To Do List</p>
-            <p class="text-[#7A7F83] font-[400] md:text-[16px]">
-              Buat list tugas harian saya
-            </p>
-          </div>
-          <div>
-            <button
-              class="flex bg-[#FF5F26] items-center gap-2 p-2 rounded-[60px] hover:bg-[#FF864F] w-[120px] md:w-[183px] md: justify-center md:px-[15px] py-[12px] md:border-[1px]"
-              id="add-task"
-            >
-              <img
-                src="/assets/img/Plus.png"
-                alt="plus-ikon"
-                class="w-[14px] h-[14px] md:w-[24px] md:h-[24px]"
-              />
-              <p class="text-[#FFFFFF] text-[10px] md:text-[16px]">
-                Tambah Tugas
-              </p>
-            </button>
-          </div>
+          <button class="text-left w-full">By Tanggal</button>
+          <img src="assets/img/circle.png" alt="tanggal" class="w-5 h-5" />
         </div>
-        <!--  -->
         <div
-          class="flex flex-col items-center md:justify-between md:flex-row mt-3 mb-4 px-10"
+          class="flex justify-between items-center p-2 hover:bg-gray-100 rounded-lg"
         >
-          <div>
-            <p class="text-[#7A7F83]">Sort By</p>
-          </div>
-          <div class="flex justify-center">
-            <button
-              class="flex flex-col items-center justify-center mt-2 bg-[#FFFFFF] border border-[#FF5F26] rounded-[50px] text-[#FF5F26] w-[100px] h-[50px] md:flex md:flex-row md:w-[136px]"
-            >
-              <p class="text-[14px]">By Tanggal</p>
-              <img
-                src="/assets/img/Arrow - Down 2 oren .png"
-                alt="arrow-down"
-              />
-            </button>
-          </div>
+          <button class="text-left w-full">By Time</button>
+          <img
+            src="assets/img/Rectangle 21.png"
+            alt="tanggal"
+            class="w-5 h-5"
+          />
         </div>
-        <!--  -->
-        <div class="flex flex-col px-8 bg-[#F5F5F5] h-[106px]" id="content3">
-          <div class="p-1">
+        <div
+          class="flex justify-between items-center p-2 hover:bg-gray-100 rounded-lg"
+        >
+          <button class="text-left w-full">Terbaru</button>
+          <img
+            src="assets/img/Rectangle 21.png"
+            alt="tanggal"
+            class="w-5 h-5"
+          />
+        </div>
+      </div>
+
+      <!-- Form Input -->
+      <form action="" class="flex flex-col h-[110px]">
+        <div class="bg-[#F5F5F5] px-8 py-4 hidden" id="content3">
+          <div class="flex gap-1">
+            <button id="btn-new">
+              <img src="assets/img/Rectangle 21.png" alt="newButton" />
+            </button>
             <label>
               <input
-                type="radio"
-                class="w-[24px] h-[24px] accent-orange-500"
-                id="inputNew"
+                type="text"
+                class="bg-transparent outline-none text-[18px] w-[213px]"
+                placeholder="Masukan nama tugas"
               />
-              <span>Masukan nama tugas</span>
             </label>
           </div>
+
           <div class="flex flex-col md:gap-[10px] h-[50px]">
-            <!--  -->
-            <label class="flex gap-2">
+            <label class="flex gap-4 py-1">
               <img src="assets/img/menu.png" alt="multi-line" />
               <input
                 type="text"
@@ -118,8 +158,8 @@
                 class="bg-transparent outline-none text-[14px] w-[213px]"
               />
             </label>
-            <label class="flex gap-2">
-              <img src="assets/img/Calendar.svg" alt="" />
+            <label class="flex gap-4 py-1">
+              <img src="assets/img/Calendar.svg" alt="calendar icon" />
               <input
                 type="text"
                 id="tanggal"
@@ -129,72 +169,187 @@
             </label>
           </div>
         </div>
-
-        <!--  -->
-        <div class="px-8">
-          <div class="content4-wrap">
-            <div class="flex items-center gap-3">
-              <button>
-                <img src="/assets/img/Rectangle 21.png" alt="circle" />
-              </button>
-              <label>
-                <p>Product Design</p>
+        <!-- List Tasks -->
+        <!-- Product Design -->
+        <div class="px-8 pt-2">
+          <div class="flex justify-between">
+            <div class="flex gap-5 items-center py-1">
+              <label class="flex items-center gap-2">
+                <input type="radio" class="w-[24px] h-[24px]" />
+                <span>Product Design</span>
               </label>
-              <span>Hari ini</span>
+              <span
+                class="flex items-center bg-[#FFEBD3] px-[12px] py-[8px] font-[500] rounded-[50px] w-[66px] h-[28px] text-[12px] text-[#FF5F26]"
+                >Hari ini</span
+              >
+              <div>
+                <button>
+                  <img src="assets/img/more-vertical.png" alt="three-dots" />
+                </button>
+                <div
+                  class="hidden absolute right-[100px] top-50 md:right-[250px] flex flex-col gap-2 border border-[#CCCED2] rounded-[10px] p-4 gap-4"
+                  id="edit-task"
+                >
+                  <button class="flex items-center">
+                    <img
+                      src="assets/img/Edit.png"
+                      alt="delete-task"
+                      class="w-[24px]"
+                    />
+                    <p class="hover:text-[#7A7F83]">Rename task</p>
+                  </button>
+                  <button class="flex items-center">
+                    <img
+                      src="assets/img/Delete.png"
+                      alt="delete-task"
+                      class="w-[24px]"
+                    />
+                    <p class="hover:text-[#7A7F83]">Delete task</p>
+                  </button>
+                </div>
+              </div>
             </div>
-            <div class="content4-child2">
+            <div>
               <button>
-                <img src="/assets/img/Arrow - Down 2.png" alt="panah-turun" />
+                <img src="assets/img/Arrow - Down 2.png" alt="arrow-down" />
               </button>
             </div>
           </div>
-          <div class="content4-child3"></div>
-        </div>
-        <div class="content5">
-          <div class="content5-wrap">
-            <div class="content5-child1">
-              <button>
-                <img src="/assets/img/Rectangle 21.png" alt="circle" />
+          <div class="px-8 text-[#7A7F83]">Tugas untuk design team</div>
+          <!--  -->
+          <div class="hidden bg-[#F5F5F5] rounded-[8px] px-4 py-2 mt-2">
+            <div class="flex justify-between mt-2 items-center">
+              <p>Subtask</p>
+              <button
+                class="flex items-center gap-2 bg-[#ffffff] border border-[#CCCED2] px-2 py-1 rounded-[50px]"
+              >
+                <img
+                  src="assets/img/Plusoren.png"
+                  alt="increaseTask"
+                  class="w-[14px] h-[14px]"
+                />
+                <span class="text-[#FF864F]">Tambah</span>
               </button>
-              <h1>Development</h1>
-              <p>15 Juni 2022</p>
             </div>
-            <div class="content5-child2">
+            <!--  -->
+            <div class="flex flex-col gap-2 mt-2">
+              <div class="flex justify-between items-center justify-center">
+                <div class="flex items-center gap-2">
+                  <button>
+                    <img src="assets/img/Rectangle 21.png" alt="check" />
+                  </button>
+                  <span>Design Review</span>
+                </div>
+                <div>
+                  <button>
+                    <img src="assets/img/trash.png" alt="trash" />
+                  </button>
+                </div>
+              </div>
+              <div class="flex justify-between items-center justify-center">
+                <div class="flex items-center gap-2">
+                  <button>
+                    <img src="assets/img/Rectangle 21.png" alt="check" />
+                  </button>
+                  <span>High-Fidelity design</span>
+                </div>
+                <div>
+                  <button>
+                    <img src="assets/img/trash.png" alt="trash" />
+                  </button>
+                </div>
+              </div>
+              <div class="flex justify-between">
+                <div class="flex items-center gap-2">
+                  <button>
+                    <img src="assets/img/Rectangle 21.png" alt="check" />
+                  </button>
+                  <span>Design Guidelines</span>
+                </div>
+                <div>
+                  <button>
+                    <img src="assets/img/trash.png" alt="trash" />
+                  </button>
+                </div>
+              </div>
+              <div class="flex justify-between">
+                <div class="flex items-center gap-2">
+                  <button>
+                    <img src="assets/img/Group 40.png" alt="check" />
+                  </button>
+                  <span class="line-through">Design review</span>
+                </div>
+                <div>
+                  <button>
+                    <img src="assets/img/trash.png" alt="trash" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Development -->
+          <div class="flex justify-between gap-5 py-1">
+            <div class="flex items-center gap-4">
+              <label class="flex items-center gap-2">
+                <input
+                  type="radio"
+                  class="w-[24px] h-[24px] accent-orange-500"
+                />
+                <span>Development</span>
+              </label>
+              <span
+                class="flex items-center bg-[#FFEBD3] px-[12px] py-[8px] font-[500] rounded-[50px] w-[97px] h-[28px] text-[12px] text-[#FF5F26]"
+                >15 Juni 2022</span
+              >
+            </div>
+            <div>
               <button>
-                <img src="/assets/img/Arrow - Down 2.png" alt="panah-turun" />
+                <img src="assets/img/Arrow - Down 2.png" alt="arrow-down" />
+              </button>
+            </div>
+          </div>
+
+          <!-- Launching -->
+          <div class="flex justify-between">
+            <div class="flex-col md:flex md:flex-row">
+              <div class="flex gap-2 items-center">
+                <label class="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    class="w-[24px] h-[24px] accent-orange-500"
+                  />
+                  <span>Launching Wazwez Website</span>
+                </label>
+              </div>
+              <div>
+                <span
+                  class="flex items-center justify-center bg-[#FFEBD3] mx-7 py-[8px] font-[500] rounded-[50px] w-[99px] h-[28px] text-[12px] text-[#FF5F26] mt-2"
+                  >20 Juni 2022</span
+                >
+              </div>
+            </div>
+            <div>
+              <button>
+                <img src="assets/img/Arrow - Down 2.png" alt="arrow-down" />
               </button>
             </div>
           </div>
         </div>
-        <!--  -->
-        <div class="content6">
-          <div class="content6-wrap">
-            <div class="content6-child1">
-              <button>
-                <img src="/assets/img/Rectangle 21.png" alt="circle" />
-              </button>
-              <h1>Launching Wazwez Website</h1>
-              <p>20 Juni 2022</p>
-            </div>
-            <div class="content6-child2">
-              <button>
-                <img src="/assets/img/Arrow - Down 2.png" alt="panah-turun" />
-              </button>
-            </div>
-          </div>
+      </form>
+
+      <!-- Footer line inside main -->
+      <footer class="foot-child flex flex-col gap-2 mt-auto px-8 h-20">
+        <div class="bg-[#CCCED2] w-full h-[1px]"></div>
+        <div class="flex gap-4 mt-4">
+          <button>
+            <img src="/assets/img/Arrow - Right 2.png" alt="arrow-up" />
+          </button>
+          <p>Terselesaikan 3 (tugas)</p>
         </div>
-        <!--  -->
-        <div class="footer-line">
-          <div class="foot-child">
-            <button>
-              <img src="/assets/img/Arrow - Down 2.png" alt="arrow-up" />
-            </button>
-            <p>Terselesaikan 3 (tugas)</p>
-          </div>
-        </div>
-      </main>
-      <footer>TESTING</footer>
-    </form>
+      </footer>
+    </main>
+
     <script src="script.js"></script>
   </body>
 </html>
