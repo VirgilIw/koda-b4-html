@@ -4,10 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bitcount+Single+Ink:wght@100..900&family=Great+Vibes&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playwrite+ES:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
     <script src="https://cdn.tailwindcss.com"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -22,25 +18,33 @@
     />
   </head>
   <body class="w-[100%] h-screen bg-[#FFFFFF] scroll-smooth font-[Poppins]">
-    <header class="bg-[#E2A16F]">
-      <nav
-        class="flex flex-col items-center m-0 md:flex-row md:justify-between md:px-8 md:py-5"
-      >
-        <!-- logo kiri -->
-        <div class="nav-kiri">
-          <a href="/">
-            <img src="/assets/img/Logo.svg" alt="logo" />
-          </a>
-        </div>
+    <header class="bg-[#F9F5F0]">
+      <nav class="flex items-center justify-between p-2 md:py-4">
+        <!-- kiri -->
+        <a href="/">
+          <img src="/assets/img/Logo.svg" alt="logo" />
+        </a>
 
-        <!-- logo kanan -->
-        <div>
-          <ul class="flex items-center gap-2">
+        <!-- kanan -->
+        <div class="flex justify-end text-end gap-4">
+          <!-- hamburger muncul di mobile -->
+          <button id="nav-hamburger" class="md:hidden justify-end">
+            <img src="assets/img/hamburger.svg" alt="hamburger-menu" />
+          </button>
+          <ul id="menus" class="hidden md:flex flex-row items-center gap-2">
             <li>
-              <img src="/assets/img/Notification.svg" alt="notif" />
+              <button id="notification">
+                <img src="/assets/img/Notification.svg" alt="notif" />
+              </button>
             </li>
             <li>
-              <img src="/assets/img/Group 30.png" alt="person" />
+              <a href="krozeo.html" class="flex justify-center">
+                <img
+                  src="/assets/img/Group 30.png"
+                  alt="person"
+                  class="w-5 h-5 md:w-6 h-22"
+                />
+              </a>
             </li>
             <li>
               <img src="/assets/img/Frame 43.png" alt="name" />
@@ -53,6 +57,8 @@
     <main
       class="relative mx-auto md:w-[700px] md:rounded-[12px] shadow-2xl h-[100vh] flex flex-col justify-between md:mt-10"
     >
+      <div id="wrap"></div>
+
       <div
         class="flex items-center text-center justify-center flex-col px-10 pt-8 md:flex-row md:justify-between md:text-start md:gap-[10px] font-[500] gap-[10px]"
       >
@@ -90,7 +96,7 @@
         <div class="flex justify-center">
           <button
             id="byTanggal"
-            class="flex items-center justify-center mt-2 bg-[#FFFFFF] border border-[#FF5F26] rounded-[40px] md:rounded-[50px] text-[#FF5F26] w-[100px] h-[50px] md:flex-row md:w-[136px]"
+            class="flex items-center justify-center mt-2 bg-[#FFFFFF] border border-[#FF5F26] rounded-[40px] md:rounded-[50px] text-[#FF5F26] w-[100px] h-[30px] md:h-[40px] md:flex-row md:w-[136px]"
           >
             <p class="text-[12px]">By Tanggal</p>
             <img
@@ -183,7 +189,7 @@
                 >Hari ini</span
               >
               <div>
-                <button>
+                <button id="threeDots">
                   <img src="assets/img/more-vertical.png" alt="three-dots" />
                 </button>
                 <div
@@ -210,14 +216,17 @@
               </div>
             </div>
             <div>
-              <button>
+              <button id="subtaskBtn">
                 <img src="assets/img/Arrow - Down 2.png" alt="arrow-down" />
               </button>
             </div>
           </div>
           <div class="px-8 text-[#7A7F83]">Tugas untuk design team</div>
           <!--  -->
-          <div class="hidden bg-[#F5F5F5] rounded-[8px] px-4 py-2 mt-2">
+          <div
+            class="hidden bg-[#F5F5F5] rounded-[8px] px-4 py-2 mt-2"
+            id="subtask"
+          >
             <div class="flex justify-between mt-2 items-center">
               <p>Subtask</p>
               <button
@@ -339,13 +348,62 @@
       </form>
 
       <!-- Footer line inside main -->
-      <footer class="foot-child flex flex-col gap-2 mt-auto px-8 h-20">
+      <footer
+        class="foot-child flex flex-col gap-2 mt-auto px-8 h-[100px] md:h-[200px]"
+      >
+        <!--  -->
         <div class="bg-[#CCCED2] w-full h-[1px]"></div>
+        <!-- line footer -->
         <div class="flex gap-4 mt-4">
-          <button>
-            <img src="/assets/img/Arrow - Right 2.png" alt="arrow-up" />
+          <button id="btnResults">
+            <img
+              src="/assets/img/Arrow - Right 2.png"
+              alt="arrow-up"
+              id="arrow-footer"
+            />
           </button>
           <p>Terselesaikan 3 (tugas)</p>
+        </div>
+        <div class="hidden line-through" id="results">
+          <div class="flex justify-between">
+            <div>
+              <button class="flex gap-4">
+                <img src="assets/img/Group 40.png" alt="checked" />
+                <p>Requirements Detail</p>
+              </button>
+            </div>
+            <div>
+              <button>
+                <img src="assets/img/Arrow - Down 2.png" alt="arrow-down" />
+              </button>
+            </div>
+          </div>
+          <div class="flex justify-between">
+            <div>
+              <button class="flex gap-4">
+                <img src="assets/img/Group 40.png" alt="checked" />
+                <p>Backlog Teams</p>
+              </button>
+            </div>
+            <div>
+              <button>
+                <img src="assets/img/Arrow - Down 2.png" alt="arrow-down" />
+              </button>
+            </div>
+          </div>
+          <div class="flex justify-between">
+            <div>
+              <button class="flex gap-4">
+                <img src="assets/img/Group 40.png" alt="checked" />
+                <p>Meeting With Teams</p>
+              </button>
+            </div>
+            <div>
+              <button>
+                <img src="assets/img/Arrow - Down 2.png" alt="arrow-down" />
+              </button>
+            </div>
+          </div>
         </div>
       </footer>
     </main>

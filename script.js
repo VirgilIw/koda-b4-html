@@ -1,15 +1,39 @@
 const content3 = $("#content3");
 const addTaskBtn = $("#add-task");
 const editTask = $("#edit-task");
+//
 const byTanggal = $("#byTanggal");
 const isiBtnTanggal = $("#isiBtnTanggal");
-const panahTanggal = $("#panahTanggal");
 
-// klik tambah tugas
-addTaskBtn.on("click", (e) => {
-  e.preventDefault();
-  content3.toggleClass("hidden block");
-});
+// image tanggal
+const panahTanggal = $("#panahTanggal");
+const threeDots = $("#threeDots");
+//
+const subtaskMenu = $("#subtask");
+const subtaskBtn = $("#subtaskBtn");
+//
+const btnResults = $("#btnResults");
+const results = $("#results");
+const arrowFooter = $("#arrow-footer");
+//
+//
+const navMenu = $("#nav-hamburger");
+const menus = $("#menus");
+//
+//
+const notif = $("#notification");
+
+//
+const toggleMenu = function (button, menu) {
+  button.on("click", (e) => {
+    e.preventDefault();
+    menu.toggleClass("hidden block");
+  });
+};
+
+toggleMenu(addTaskBtn, content3);
+toggleMenu(threeDots, editTask);
+toggleMenu(subtaskBtn, subtaskMenu);
 
 byTanggal.on("click", (e) => {
   e.preventDefault();
@@ -25,12 +49,39 @@ byTanggal.on("click", (e) => {
   isiBtnTanggal.toggleClass("hidden block");
 });
 
+btnResults.on("click", (e) => {
+  e.preventDefault();
+  if (arrowFooter.attr("src") === "assets/img/Arrow - Up 2.png") {
+    arrowFooter.attr("src", "assets/img/Arrow - Right 2.png");
+  } else {
+    arrowFooter.attr("src", "assets/img/Arrow - Up 2.png");
+  }
+  results.toggleClass("hidden block");
+});
+
 // moment
 const updateWaktu = () => {
   const date = $("#tanggal");
   const now = moment().format("DD/MM/YYYY HH:mm:ss");
   date.val(now);
 };
+
+// hamburger menu
+
+navMenu.on("click", () => {
+  const img = navMenu.find("img");
+  const srcNow = img.attr("src");
+
+  if (srcNow.includes("hamburger.svg")) {
+    img.attr("src", "assets/img/close-hamburger.png");
+    navMenu.toggleClass("w-12 h-12"); // tambah ukuran pas aktif
+  } else {
+    img.attr("src", "assets/img/hamburger.svg");
+    navMenu.removeClass("w-12 h-12"); // biar balik lagi ke normal
+  }
+
+  menus.toggleClass("hidden mt-10");
+});
 
 updateWaktu();
 
