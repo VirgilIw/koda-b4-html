@@ -19,6 +19,7 @@
   </head>
   <body class="h-screen w-[100%] scroll-smooth bg-[#FFFFFF] font-[Poppins]">
     <!-- HEADER -->
+    <!-- HEADER -->
     <header class="bg-[#F9F5F0]">
       <nav
         class="mb-5 flex items-center justify-between bg-[#F9F5F0] p-6 md:py-4"
@@ -34,19 +35,20 @@
         </a>
 
         <!-- kanan: hamburger + menu -->
+        <!-- kanan: hamburger + menu -->
         <div
           id="menus"
-          class="fixed right-5 z-50 flex items-center gap-2 md:static"
+          class="flex items-center md:static md:flex md:items-center"
         >
-          <!-- hamburger (muncul di mobile) -->
-          <button id="nav-hamburger" class="w-[30px] md:hidden">
+          <!-- hamburger (mobile) -->
+          <button id="nav-hamburger" class="w-[30px] md:hidden z-50">
             <img src="assets/img/hamburger.svg" alt="hamburger-menu" />
           </button>
 
           <!-- menu list -->
           <ul
             id="nav-list"
-            class="absolute top-[70px] z-[50] hidden w-[120px] flex-col items-center gap-2 rounded-md bg-red-200 p-2 md:static md:flex md:w-auto md:flex-row md:bg-transparent"
+            class="hidden absolute top-[70px] right-0 z-50 w-[120px] flex-col items-center gap-2 rounded-md bg-red-200 p-2 shadow-md md:static md:flex md:flex-row md:w-full md:bg-transparent md:shadow-none md:p-3"
           >
             <li>
               <button id="notification">
@@ -58,7 +60,7 @@
               </button>
             </li>
             <li>
-              <a href="krozeo.html" class="flex justify-center">
+              <a href="pages/krozeo.html" class="flex justify-center">
                 <img
                   src="/assets/img/Group 30.png"
                   alt="person"
@@ -76,7 +78,7 @@
 
     <!-- MAIN -->
     <main
-      class="relative mx-auto p-4 flex h-[100vh] flex-col justify-between shadow-2xl md:mt-10 md:p-5 md:w-[700px] md:rounded-[12px]"
+      class="relative mx-auto flex h-[] flex-col justify-between shadow-2xl md:mt-10 md:w-[700px] md:rounded-[12px]"
     >
       <div id="wrap"></div>
 
@@ -132,7 +134,7 @@
 
       <div
         id="isiBtnTanggal"
-        class="absolute top-[260px] right-[25px] hidden cursor-pointer rounded-[8px] border border-[#CCCED2] bg-white p-4 py-6 shadow-md md:top-[200px] md:right-[30px] md:h-[140px] md:w-[250px] md:py-2"
+        class="absolute top-[200px] z-50 right-[25px] hidden cursor-pointer rounded-[8px] border border-[#CCCED2] bg-white p-4 py-6 shadow-md md:top-[200px] md:right-[30px] md:h-[140px] md:w-[250px] md:py-2 lg:top-[170px] lg:right-[30px]"
       >
         <div
           class="flex items-center justify-between rounded-lg p-2 hover:bg-gray-100"
@@ -163,15 +165,16 @@
       </div>
 
       <!-- FORM INPUT -->
-      <form action="" class="flex h-[110px] flex-col">
-        <div id="content3" class="hidden bg-[#F5F5F5] px-8 py-4">
+      <form class="flex h-[110px] flex-col">
+        <div id="content3" class="hidden bg-[#F5F5F5] px-8 py-4 md:px-11">
           <div class="flex gap-1">
-            <button id="btn-new">
+            <button id="btn-save">
               <img src="assets/img/Rectangle 21.png" alt="newButton" />
             </button>
             <label>
               <input
                 type="text"
+                id="addTaskName"
                 class="w-[213px] bg-transparent text-[18px] outline-none"
                 placeholder="Masukan nama tugas"
               />
@@ -183,6 +186,7 @@
               <img src="assets/img/menu.png" alt="multi-line" />
               <input
                 type="text"
+                id="deskripsiTugas"
                 placeholder="Deskripsi Tugas (Optional)"
                 class="w-[213px] bg-transparent text-[14px] outline-none"
               />
@@ -191,7 +195,7 @@
               <img src="assets/img/Calendar.svg" alt="calendar icon" />
               <input
                 type="text"
-                id="tanggal"
+                id="tanggalTask"
                 placeholder="Tanggal & Waktu"
                 class="bg-transparent outline-none"
               />
@@ -201,57 +205,11 @@
 
         <!-- LIST TASKS -->
         <div class="px-8 pt-2">
-          <!-- Product Design -->
-          <div class="flex justify-between">
-            <div class="flex items-center gap-5 py-1">
-              <label class="flex items-center gap-2">
-                <input type="radio" class="h-[24px] w-[24px]" />
-                <span>Product Design</span>
-              </label>
-              <span
-                class="flex h-[28px] w-[66px] items-center rounded-[50px] bg-[#FFEBD3] px-[12px] py-[8px] text-[12px] font-[500] text-[#FF5F26]"
-                >Hari ini</span
-              >
-              <div>
-                <button id="threeDots">
-                  <img src="assets/img/more-vertical.png" alt="three-dots" />
-                </button>
-                <div
-                  id="edit-task"
-                  class="absolute right-[100px] top-50 hidden flex flex-col gap-2 rounded-[10px] border border-[#CCCED2] p-4 md:right-[250px]"
-                >
-                  <button class="flex items-center">
-                    <img
-                      src="assets/img/Edit.png"
-                      alt="delete-task"
-                      class="w-[24px]"
-                    />
-                    <p class="hover:text-[#7A7F83]">Rename task</p>
-                  </button>
-                  <button class="flex items-center">
-                    <img
-                      src="assets/img/Delete.png"
-                      alt="delete-task"
-                      class="w-[24px]"
-                    />
-                    <p class="hover:text-[#7A7F83]">Delete task</p>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div>
-              <button id="subtaskBtn">
-                <img src="assets/img/Arrow - Down 2.png" alt="arrow-down" />
-              </button>
-            </div>
-          </div>
-          <div class="px-8 text-[#7A7F83]">Tugas untuk design team</div>
+          <!-- ISI INPUTAN -->
+          <div id="isiInputNew"></div>
 
           <!-- SUBTASK -->
-          <div
-            id="subtask"
-            class="mt-2 hidden rounded-[8px] bg-[#F5F5F5] px-4 py-2"
-          >
+          <div class="subtask mt-2 hidden rounded-[8px] bg-[#F5F5F5] px-4 py-2">
             <div class="mt-2 flex items-center justify-between">
               <p>Subtask</p>
               <button
@@ -328,7 +286,7 @@
 
       <!-- FOOTER -->
       <footer
-        class="foot-child mt-auto flex h-[100px] flex-col gap-2 px-8 md:mt-auto md:h-[200px]"
+        class="foot-child mt-[800px] flex h-[10px] flex-col gap-2 px-8 md:mt-auto md:h-[200px]"
       >
         <div class="h-[1px] w-full bg-[#CCCED2]"></div>
         <div class="mt-4 flex gap-4">
@@ -341,12 +299,25 @@
           </button>
           <p>Terselesaikan 3 (tugas)</p>
         </div>
-        <div id="results" class="hidden line-through">
+        <div id="results" class="hasil hidden line-through">
           <div class="flex justify-between">
             <div>
-              <button class="flex gap-4">
+              <button class="btn1 flex gap-4">
                 <img src="assets/img/Group 40.png" alt="checked" />
-                <p>Requirements Detail</p>
+                <p class="textFoot1">Requirements Detail</p>
+              </button>
+            </div>
+            <div>
+              <button class="btn2">
+                <img src="assets/img/Arrow - Down 2.png" alt="arrow-down" />
+              </button>
+            </div>
+          </div>
+          <div class="flex justify-between">
+            <div>
+              <button class="btn3 flex gap-4">
+                <img src="assets/img/Group 40.png" alt="checked" />
+                <p class="textFoot2">Backlog Teams</p>
               </button>
             </div>
             <div>
@@ -359,20 +330,7 @@
             <div>
               <button class="flex gap-4">
                 <img src="assets/img/Group 40.png" alt="checked" />
-                <p>Backlog Teams</p>
-              </button>
-            </div>
-            <div>
-              <button>
-                <img src="assets/img/Arrow - Down 2.png" alt="arrow-down" />
-              </button>
-            </div>
-          </div>
-          <div class="flex justify-between">
-            <div>
-              <button class="flex gap-4">
-                <img src="assets/img/Group 40.png" alt="checked" />
-                <p>Meeting With Teams</p>
+                <p class="textFoot3">Meeting With Teams</p>
               </button>
             </div>
             <div>
@@ -385,6 +343,9 @@
       </footer>
     </main>
 
-    <script src="script.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
+      data-main="script/main.js"
+    ></script>
   </body>
 </html>
