@@ -17,7 +17,9 @@
       rel="stylesheet"
     />
   </head>
-  <body class="h-screen w-[100%] scroll-smooth bg-[#FFFFFF] font-[Poppins]">
+  <body
+    class="lg:h-[120vh] h-100vh w-[100%] scroll-smooth bg-[#FFFFFF] font-[Poppins]"
+  >
     <!-- HEADER -->
     <!-- HEADER -->
     <header class="bg-[#F9F5F0]">
@@ -78,7 +80,7 @@
 
     <!-- MAIN -->
     <main
-      class="relative mx-auto flex h-[] flex-col justify-between shadow-2xl md:mt-10 md:w-[700px] md:rounded-[12px]"
+      class="relative mx-auto flex h-screen flex-col justify-between shadow-2xl md:mt-10 md:w-[700px] md:rounded-[12px]"
     >
       <div id="wrap"></div>
 
@@ -206,7 +208,7 @@
         <!-- LIST TASKS -->
         <div class="px-8 pt-2">
           <!-- ISI INPUTAN -->
-          <div id="isiInputNew"></div>
+          <div id="isiInputNew" class="relative"></div>
 
           <!-- SUBTASK -->
           <div class="subtask mt-2 hidden rounded-[8px] bg-[#F5F5F5] px-4 py-2">
@@ -285,9 +287,7 @@
       </form>
 
       <!-- FOOTER -->
-      <footer
-        class="foot-child mt-[800px] flex h-[10px] flex-col gap-2 px-8 md:mt-auto md:h-[200px]"
-      >
+      <footer class="foot-child flex h-[10px] flex-col gap-2 px-8 md:h-[200px]">
         <div class="h-[1px] w-full bg-[#CCCED2]"></div>
         <div class="mt-4 flex gap-4">
           <button id="btnResults">
