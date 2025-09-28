@@ -19,6 +19,8 @@ const arrowFooter = $("#arrow-footer");
 //
 const navMenu = $("#nav-hamburger");
 const menus = $("#menus");
+const navList = $("#nav-list");
+const logo = $("#wazwez");
 //
 //
 const notif = $("#notification");
@@ -74,13 +76,14 @@ navMenu.on("click", () => {
 
   if (srcNow.includes("hamburger.svg")) {
     img.attr("src", "assets/img/close-hamburger.png");
-    navMenu.toggleClass("w-12 h-12"); // tambah ukuran pas aktif
+    menus.addClass("flex-col items-center mr-1 w-6 h-7 p-0");
+    // logo.addClass("w-max");
   } else {
     img.attr("src", "assets/img/hamburger.svg");
-    navMenu.removeClass("w-12 h-12"); // biar balik lagi ke normal
+    navMenu.removeClass("w-14 h-12");
   }
 
-  menus.toggleClass("hidden mt-10");
+  navList.toggleClass("hidden flex mr-10 w-20");
 });
 
 updateWaktu();
