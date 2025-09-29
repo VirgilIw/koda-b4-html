@@ -18,46 +18,37 @@
     />
   </head>
   <body
-    class="lg:h-[120vh] h-100vh w-[100%] scroll-smooth bg-[#FFFFFF] font-[Poppins]"
+    class="lg:h-screen min-h-screen w-full scroll-smooth bg-[#FFFFFF] font-[Poppins]"
   >
-    <!-- HEADER -->
-    <!-- HEADER -->
     <header class="bg-[#F9F5F0]">
       <nav
-        class="mb-5 flex items-center justify-between bg-[#F9F5F0] p-6 md:py-4"
+        class="flex items-center justify-between bg-[#F9F5F0] px-6 py-4 md:py-4"
       >
-        <!-- kiri: logo -->
         <a href="/">
           <img
             src="/assets/img/Logo.svg"
             alt="logo"
             id="wazwez"
-            class="w-full"
+            class="w-[120px] md:w-[150px]"
           />
         </a>
-
-        <!-- kanan: hamburger + menu -->
-        <!-- kanan: hamburger + menu -->
         <div
           id="menus"
           class="flex items-center md:static md:flex md:items-center"
         >
-          <!-- hamburger (mobile) -->
-          <button id="nav-hamburger" class="w-[30px] md:hidden z-50">
+          <button id="nav-hamburger" class="w-8 md:hidden z-50">
             <img src="assets/img/hamburger.svg" alt="hamburger-menu" />
           </button>
-
-          <!-- menu list -->
           <ul
             id="nav-list"
-            class="hidden absolute top-[70px] right-0 z-50 w-[120px] flex-col items-center gap-2 rounded-md bg-red-200 p-2 shadow-md md:static md:flex md:flex-row md:w-full md:bg-transparent md:shadow-none md:p-3"
+            class="hidden absolute top-[60px] right-0 z-50 w-[120px] flex-col items-center gap-2 rounded-md bg-red-200 p-2 shadow-md md:static md:flex md:flex-row md:w-full md:bg-transparent md:shadow-none md:p-3"
           >
             <li>
               <button id="notification">
                 <img
                   src="/assets/img/Notification.svg"
                   alt="notif"
-                  class="w-[20px]"
+                  class="w-5"
                 />
               </button>
             </li>
@@ -66,7 +57,7 @@
                 <img
                   src="/assets/img/Group 30.png"
                   alt="person"
-                  class="h-10 w-10 md:w-10"
+                  class="h-10 w-10"
                 />
               </a>
             </li>
@@ -78,218 +69,153 @@
       </nav>
     </header>
 
-    <!-- MAIN -->
     <main
-      class="relative mx-auto flex h-screen flex-col justify-between shadow-2xl md:mt-10 md:w-[700px] md:rounded-[12px]"
+      class="relative mx-auto pt-6 flex min-h-screen flex-col justify-between shadow-2xl md:mt-10 md:w-[700px] md:rounded-[12px]"
     >
-      <div id="wrap"></div>
-
-      <!-- TITLE + BUTTON -->
-      <div
-        class="flex flex-col items-center justify-center gap-[10px] px-10 text-center font-[500] md:flex-row md:justify-between md:gap-[10px] md:text-start"
-      >
-        <div>
-          <p class="text-[12px] text-[#FF5F26] md:text-[16px]">MY TASKS</p>
-          <p class="md:text-[24px]">To Do List</p>
-          <p class="text-[#7A7F83] font-[400] md:text-[16px]">
-            Buat list tugas harian saya
-          </p>
-        </div>
-        <div>
-          <button
-            id="add-task"
-            class="flex w-[150px] items-center gap-2 rounded-[60px] bg-[#FF5F26] p-2 py-[12px] hover:bg-[#FF864F] md:w-[200px] md:justify-center md:px-[15px] md:border-[1px]"
-          >
-            <img
-              src="/assets/img/Plus.png"
-              alt="plus-ikon"
-              class="h-[18px] w-[18px] md:h-[24px] md:w-[24px]"
-            />
-            <p class="text-[14px] text-[#FFFFFF] md:text-[16px]">
-              Tambah Tugas
+      <div>
+        <div
+          class="flex flex-col items-center justify-center gap-5 text-center font-[500] md:flex-row md:justify-between md:gap-4 md:px-10 md:text-start"
+        >
+          <div>
+            <p class="text-[12px] text-[#FF5F26] md:text-[16px]">MY TASKS</p>
+            <p class="text-[18px] md:text-[24px]">To Do List</p>
+            <p class="text-[#7A7F83] font-[400] text-[14px] md:text-[16px]">
+              Buat list tugas harian saya
             </p>
-          </button>
-        </div>
-      </div>
-
-      <!-- SORT BY -->
-      <div
-        class="mt-3 mb-4 flex flex-col items-center px-10 md:flex-row md:items-center md:justify-between"
-      >
-        <div>
-          <p class="text-[#7A7F83]">Sort By</p>
-        </div>
-        <div class="flex justify-center">
-          <button
-            id="byTanggal"
-            class="mt-2 flex h-[30px] w-[100px] items-center justify-center rounded-[40px] border border-[#FF5F26] bg-[#FFFFFF] text-[#FF5F26] md:h-[40px] md:w-[136px] md:rounded-[50px] md:flex-row"
-          >
-            <p class="text-[12px]">By Tanggal</p>
-            <img
-              src="/assets/img/Arrow - Down 2 oren .png"
-              alt="arrow-down"
-              id="panahTanggal"
-            />
-          </button>
-        </div>
-      </div>
-
-      <div
-        id="isiBtnTanggal"
-        class="absolute top-[200px] z-50 right-[25px] hidden cursor-pointer rounded-[8px] border border-[#CCCED2] bg-white p-4 py-6 shadow-md md:top-[200px] md:right-[30px] md:h-[140px] md:w-[250px] md:py-2 lg:top-[170px] lg:right-[30px]"
-      >
-        <div
-          class="flex items-center justify-between rounded-lg p-2 hover:bg-gray-100"
-        >
-          <button class="w-full text-left">By Tanggal</button>
-          <img src="assets/img/circle.png" alt="tanggal" class="h-5 w-5" />
-        </div>
-        <div
-          class="flex items-center justify-between rounded-lg p-2 hover:bg-gray-100"
-        >
-          <button class="w-full text-left">By Time</button>
-          <img
-            src="assets/img/Rectangle 21.png"
-            alt="tanggal"
-            class="h-5 w-5"
-          />
-        </div>
-        <div
-          class="flex items-center justify-between rounded-lg p-2 hover:bg-gray-100"
-        >
-          <button class="w-full text-left">Terbaru</button>
-          <img
-            src="assets/img/Rectangle 21.png"
-            alt="tanggal"
-            class="h-5 w-5"
-          />
-        </div>
-      </div>
-
-      <!-- FORM INPUT -->
-      <form class="flex h-[110px] flex-col">
-        <div id="content3" class="hidden bg-[#F5F5F5] px-8 py-4 md:px-11">
-          <div class="flex gap-1">
-            <button id="btn-save">
-              <img src="assets/img/Rectangle 21.png" alt="newButton" />
+          </div>
+          <div>
+            <button
+              id="add-task"
+              class="flex w-[150px] items-center gap-2 rounded-[60px] bg-[#FF5F26] p-2 py-2 md:w-[200px] md:justify-center md:px-4 md:border-[1px]"
+            >
+              <img
+                src="/assets/img/Plus.png"
+                alt="plus-ikon"
+                class="h-4 w-4 md:h-6 md:w-6"
+              />
+              <p class="text-[14px] text-[#FFFFFF] md:text-[16px]">
+                Tambah Tugas
+              </p>
             </button>
-            <label>
-              <input
-                type="text"
-                id="addTaskName"
-                class="w-[213px] bg-transparent text-[18px] outline-none"
-                placeholder="Masukan nama tugas"
-              />
-            </label>
-          </div>
-
-          <div class="flex h-[50px] flex-col md:gap-[10px]">
-            <label class="flex gap-4 py-1">
-              <img src="assets/img/menu.png" alt="multi-line" />
-              <input
-                type="text"
-                id="deskripsiTugas"
-                placeholder="Deskripsi Tugas (Optional)"
-                class="w-[213px] bg-transparent text-[14px] outline-none"
-              />
-            </label>
-            <label class="flex gap-4 py-1">
-              <img src="assets/img/Calendar.svg" alt="calendar icon" />
-              <input
-                type="text"
-                id="tanggalTask"
-                placeholder="Tanggal & Waktu"
-                class="bg-transparent outline-none"
-              />
-            </label>
           </div>
         </div>
 
-        <!-- LIST TASKS -->
-        <div class="px-8 pt-2">
-          <!-- ISI INPUTAN -->
-          <div id="isiInputNew" class="relative"></div>
+        <div
+          class="flex flex-col items-center px-6 md:flex-row md:items-center md:justify-between md:px-10"
+        >
+          <div>
+            <p class="text-[#7A7F83] text-[14px] md:text-[16px]">Sort By</p>
+          </div>
+          <div class="flex justify-center mt-2 md:mt-0">
+            <button
+              id="byTanggal"
+              class="flex h-[30px] w-[100px] items-center justify-center rounded-full border border-[#FF5F26] bg-white text-[#FF5F26] md:h-[40px] md:w-[136px]"
+            >
+              <p class="text-[12px] md:text-[14px]">By Tanggal</p>
+              <img
+                src="/assets/img/Arrow - Down 2 oren .png"
+                alt="arrow-down"
+                id="panahTanggal"
+                class="ml-1"
+              />
+            </button>
+          </div>
+        </div>
 
-          <!-- SUBTASK -->
-          <div class="subtask mt-2 hidden rounded-[8px] bg-[#F5F5F5] px-4 py-2">
-            <div class="mt-2 flex items-center justify-between">
-              <p>Subtask</p>
-              <button
-                class="flex items-center gap-2 rounded-[50px] border border-[#CCCED2] bg-[#ffffff] px-2 py-1"
-              >
-                <img
-                  src="assets/img/Plusoren.png"
-                  alt="increaseTask"
-                  class="h-[14px] w-[14px]"
-                />
-                <span class="text-[#FF864F]">Tambah</span>
+        <div
+          id="isiBtnTanggal"
+          class="absolute top-70 right-[25px] z-50 hidden w-[220px] rounded-md border border-[#CCCED2] bg-white p-4 shadow-md md:w-[250px] md:top-[200px] md:right-[30px] lg:top-[170px]"
+        >
+          <div
+            class="flex items-center justify-between rounded-lg p-2 hover:bg-gray-100"
+          >
+            <button class="w-full text-left">By Tanggal</button>
+            <img src="assets/img/circle.png" alt="tanggal" class="h-5 w-5" />
+          </div>
+          <div
+            class="flex items-center justify-between rounded-lg p-2 hover:bg-gray-100"
+          >
+            <button class="w-full text-left">By Time</button>
+            <img
+              src="assets/img/Rectangle 21.png"
+              alt="tanggal"
+              class="h-5 w-5"
+            />
+          </div>
+          <div
+            class="flex items-center justify-between rounded-lg p-2 hover:bg-gray-100"
+          >
+            <button class="w-full text-left">Terbaru</button>
+            <img
+              src="assets/img/Rectangle 21.png"
+              alt="tanggal"
+              class="h-5 w-5"
+            />
+          </div>
+        </div>
+
+        <form class="flex flex-col py-2">
+          <div
+            id="content3"
+            class="hidden bg-[#F5F5F5] px-4 py-4 md:px-10 md:py-4 rounded-md"
+          >
+            <div class="flex gap-2 items-center">
+              <button id="btn-save">
+                <img src="assets/img/Rectangle 21.png" alt="newButton" />
               </button>
+              <labels>
+                <input
+                  type="text"
+                  id="addTaskName"
+                  class="w-full bg-transparent text-[16px] md:text-[18px] outline-none"
+                  placeholder="Masukan nama tugas"
+                />
+              </labels>
             </div>
 
-            <div class="mt-2 flex flex-col gap-2">
-              <div class="flex items-center justify-center justify-between">
-                <div class="flex items-center gap-2">
-                  <button>
-                    <img src="assets/img/Rectangle 21.png" alt="check" />
-                  </button>
-                  <span>Design Review</span>
-                </div>
-                <div>
-                  <button>
-                    <img src="assets/img/trash.png" alt="trash" />
-                  </button>
-                </div>
-              </div>
-              <div class="flex items-center justify-center justify-between">
-                <div class="flex items-center gap-2">
-                  <button>
-                    <img src="assets/img/Rectangle 21.png" alt="check" />
-                  </button>
-                  <span>High-Fidelity design</span>
-                </div>
-                <div>
-                  <button>
-                    <img src="assets/img/trash.png" alt="trash" />
-                  </button>
-                </div>
-              </div>
-              <div class="flex justify-between">
-                <div class="flex items-center gap-2">
-                  <button>
-                    <img src="assets/img/Rectangle 21.png" alt="check" />
-                  </button>
-                  <span>Design Guidelines</span>
-                </div>
-                <div>
-                  <button>
-                    <img src="assets/img/trash.png" alt="trash" />
-                  </button>
-                </div>
-              </div>
-              <div class="flex justify-between">
-                <div class="flex items-center gap-2">
-                  <button>
-                    <img src="assets/img/Group 40.png" alt="check" />
-                  </button>
-                  <span class="line-through">Design review</span>
-                </div>
-                <div>
-                  <button>
-                    <img src="assets/img/trash.png" alt="trash" />
-                  </button>
-                </div>
-              </div>
+            <div class="flex flex-col gap-2 mt-2">
+              <label class="flex gap-2 items-center">
+                <img
+                  src="assets/img/menu.png"
+                  alt="multi-line"
+                  class="h-5 w-5 md:h-6 md:w-6"
+                />
+                <input
+                  type="text"
+                  id="deskripsiTugas"
+                  placeholder="Deskripsi Tugas (Optional)"
+                  class="flex-1 bg-transparent text-[14px] md:text-[16px] outline-none"
+                />
+              </label>
+              <label class="flex gap-2 items-center">
+                <img
+                  src="assets/img/Calendar.svg"
+                  alt="calendar icon"
+                  class="h-5 w-5 md:h-6 md:w-6"
+                />
+                <input
+                  type="text"
+                  id="tanggalTask"
+                  placeholder="Tanggal & Waktu"
+                  class="flex-1 bg-transparent text-[14px] md:text-[16px] outline-none"
+                />
+              </label>
             </div>
           </div>
 
-          <!-- Development -->
-        </div>
-      </form>
+          <div id="isiInputNew" class="relative mt-4"></div>
 
-      <!-- FOOTER -->
-      <footer class="foot-child flex h-[10px] flex-col gap-2 px-8 md:h-[200px]">
+          <div
+            class="subtask mt-2 hidden rounded-md bg-[#F5F5F5] px-4 py-2"
+          ></div>
+        </form>
+      </div>
+
+      <footer
+        class="foot-child flex flex-col gap-2 px-6 py-4 md:px-10 md:h-[200px]"
+      >
         <div class="h-[1px] w-full bg-[#CCCED2]"></div>
-        <div class="mt-4 flex gap-4">
+        <div class="mt-4 flex gap-4 items-center">
           <button id="btnResults">
             <img
               src="/assets/img/Arrow - Right 2.png"
@@ -297,48 +223,9 @@
               id="arrow-footer"
             />
           </button>
-          <p>Terselesaikan 3 (tugas)</p>
+          <p class="text-[14px] md:text-[16px]">Terselesaikan 3 (tugas)</p>
         </div>
-        <div id="results" class="hasil hidden line-through">
-          <div class="flex justify-between">
-            <div>
-              <button class="btn1 flex gap-4">
-                <img src="assets/img/Group 40.png" alt="checked" />
-                <p class="textFoot1">Requirements Detail</p>
-              </button>
-            </div>
-            <div>
-              <button class="btn2">
-                <img src="assets/img/Arrow - Down 2.png" alt="arrow-down" />
-              </button>
-            </div>
-          </div>
-          <div class="flex justify-between">
-            <div>
-              <button class="btn3 flex gap-4">
-                <img src="assets/img/Group 40.png" alt="checked" />
-                <p class="textFoot2">Backlog Teams</p>
-              </button>
-            </div>
-            <div>
-              <button>
-                <img src="assets/img/Arrow - Down 2.png" alt="arrow-down" />
-              </button>
-            </div>
-          </div>
-          <div class="flex justify-between">
-            <div>
-              <button class="flex gap-4">
-                <img src="assets/img/Group 40.png" alt="checked" />
-                <p class="textFoot3">Meeting With Teams</p>
-              </button>
-            </div>
-            <div>
-              <button>
-                <img src="assets/img/Arrow - Down 2.png" alt="arrow-down" />
-              </button>
-            </div>
-          </div>
+        <div id="results" class="hasil hidden line-through mt-2">
         </div>
       </footer>
     </main>
