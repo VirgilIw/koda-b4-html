@@ -10,85 +10,116 @@ require(["jquery", "el", "task"], function ($, el, task) {
   task.bindEvents();
   task.inputAfter();
 
-  // State untuk tracking mode sorting
-  let currentSortMode = "none"; // "none", "date", "time"
+  let currentSortMode = "none";
   let sortAscending = true;
 
-  // Function untuk update UI dropdown
-  const updateDropdownUI = (mode) => {
-    // Reset semua icon ke unchecked
-    $("#isiBtnTanggal img").attr("src", "assets/img/Rectangle 21.png");
+  const ICONS = {
+    arrowUpGray: "assets/img/Arrow - Up 2.png",
+    arrowDownOrange: "assets/img/Arrow - Down 2 oren .png",
+    arrowRight: "assets/img/Arrow - Right 2.png",
+    checked: "assets/img/circle.png",
+    unchecked: "assets/img/Rectangle 21.png",
+    hamburger: "assets/img/hamburger.svg",
+    closeHamburger: "assets/img/close-hamburger.png",
+  };
 
-    // Set icon yang dipilih ke checked
-    if (mode === "date") {
-      $("#isiBtnTanggal button:contains('By Tanggal')")
+  const resetButtonStyle = () => {
+    el.byTanggal.removeClass("text-[#FF5F26] border-[#FF5F26]");
+    el.byTanggal.addClass("text-gray-300 border-gray-400");
+  };
+
+  const setActiveButtonStyle = () => {
+    el.byTanggal.removeClass("text-gray-300 border-gray-400");
+    el.byTanggal.addClass("text-[#FF5F26] border-[#FF5F26]");
+  };
+
+  const updateDropdownUI = (mode) => {
+    $("#isiBtnTanggal img").attr("src", ICONS.unchecked);
+
+    const modeMap = {
+      date: "By Tanggal",
+      time: "By Time",
+      newest: "Terbaru",
+    };
+
+    if (modeMap[mode]) {
+      $(`#isiBtnTanggal button:contains('${modeMap[mode]}')`)
         .siblings("img")
-        .attr("src", "assets/img/circle.png");
-    } else if (mode === "time") {
-      $("#isiBtnTanggal button:contains('By Time')")
-        .siblings("img")
-        .attr("src", "assets/img/circle.png");
-    } else if (mode === "newest") {
-      $("#isiBtnTanggal button:contains('Terbaru')")
-        .siblings("img")
-        .attr("src", "assets/img/circle.png");
+        .attr("src", ICONS.checked);
     }
   };
 
-  // Function untuk perform sorting
+  const parseDate = (dateString) => {
+    return dateString === "Hari ini"
+      ? moment().startOf("day")
+      : moment(dateString, "DD MMM YYYY");
+  };
+
+  const sortByDate = (ascending) => {
+    task.sortTasks((a, b) => {
+      const dateA = parseDate(a.waktu);
+      const dateB = parseDate(b.waktu);
+      return ascending ? dateA - dateB : dateB - dateA;
+    });
+  };
+
+  const sortByTime = () => {
+    task.sortTasks((a, b) => {
+      const timeA = a.createdAt || 0;
+      const timeB = b.createdAt || 0;
+      return timeA - timeB;
+    });
+  };
+
+  const sortByNewest = () => {
+    task.sortTasks((a, b) => {
+      const timeA = a.createdAt || 0;
+      const timeB = b.createdAt || 0;
+      return timeB - timeA;
+    });
+  };
+
   const performSort = (mode, ascending = true) => {
-    if (mode === "date") {
-      // Sort by date
-      task.sortTasks((a, b) => {
-        const parseDate = (t) =>
-          t === "Hari ini" ? moment().startOf("day") : moment(t, "DD MMM YYYY");
+    const sortMethods = {
+      date: () => sortByDate(ascending),
+      time: sortByTime,
+      newest: sortByNewest,
+    };
 
-        const dateA = parseDate(a.waktu);
-        const dateB = parseDate(b.waktu);
-
-        return ascending ? dateA - dateB : dateB - dateA;
-      });
-    } else if (mode === "time") {
-      // Sort by created timestamp (oldest first)
-      task.sortTasks((a, b) => {
-        const timeA = a.createdAt || 0;
-        const timeB = b.createdAt || 0;
-
-        return timeA - timeB; // Always oldest first for "By Time"
-      });
-    } else if (mode === "newest") {
-      // Sort by created timestamp (newest first)
-      task.sortTasks((a, b) => {
-        const timeA = a.createdAt || 0;
-        const timeB = b.createdAt || 0;
-
-        return timeB - timeA; // Always newest first for "Terbaru"
-      });
+    if (sortMethods[mode]) {
+      sortMethods[mode]();
+      task.inputAfter();
     }
-
-    task.inputAfter();
   };
 
   el.navMenu.on("click", function () {
     const img = $(this).find("img");
     const isHamburger = img.attr("src").includes("hamburger.svg");
+
     if (isHamburger) {
-      img.attr("src", "assets/img/close-hamburger.png");
+      img.attr("src", ICONS.closeHamburger);
       el.navList.removeClass("hidden").addClass("flex flex-col md:flex-row");
     } else {
-      img.attr("src", "assets/img/hamburger.svg");
+      img.attr("src", ICONS.hamburger);
       el.navList.addClass("hidden").removeClass("flex flex-col md:flex-row");
     }
   });
 
   el.byTanggal.on("click", (e) => {
     e.stopPropagation();
+
+    const isHidden = el.isiBtnTanggal.hasClass("hidden");
     el.isiBtnTanggal.toggleClass("hidden");
 
-    const up = "assets/img/Arrow - Up 2.png";
-    const down = "assets/img/Arrow - Down 2 oren .png";
-    const isHidden = el.isiBtnTanggal.hasClass("hidden");
-    el.panahTanggal.attr("src", isHidden ? down : up);
+    if (isHidden) {
+      el.panahTanggal.attr("src", ICONS.arrowUpGray);
+      resetButtonStyle();
+    } else {
+      el.panahTanggal.attr("src", ICONS.arrowDownOrange);
+      if (currentSortMode !== "none") {
+        setActiveButtonStyle();
+      }
+    }
   });
 
   $("#isiBtnTanggal button:contains('By Tanggal')").on("click", function (e) {
@@ -109,10 +140,8 @@ require(["jquery", "el", "task"], function ($, el, task) {
     performSort("date", sortAscending);
 
     el.isiBtnTanggal.addClass("hidden");
-    el.panahTanggal.attr("src", "assets/img/Arrow - Down 2 oren .png");
-
-    el.byTanggal.removeClass("text-gray-300 border-gray-400");
-    el.byTanggal.addClass("text-[#FF5F26] border-[#FF5F26]");
+    el.panahTanggal.attr("src", ICONS.arrowDownOrange);
+    setActiveButtonStyle();
   });
 
   $("#isiBtnTanggal button:contains('By Time')").on("click", function (e) {
@@ -120,17 +149,14 @@ require(["jquery", "el", "task"], function ($, el, task) {
     e.stopPropagation();
 
     currentSortMode = "time";
-
     el.byTanggal.find("p").text("By Time (Terlama)");
 
     updateDropdownUI("time");
     performSort("time");
 
     el.isiBtnTanggal.addClass("hidden");
-    el.panahTanggal.attr("src", "assets/img/Arrow - Down 2 oren .png");
-
-    el.byTanggal.removeClass("text-gray-300 border-gray-400");
-    el.byTanggal.addClass("text-[#FF5F26] border-[#FF5F26]");
+    el.panahTanggal.attr("src", ICONS.arrowDownOrange);
+    setActiveButtonStyle();
   });
 
   $("#isiBtnTanggal button:contains('Terbaru')").on("click", function (e) {
@@ -138,30 +164,36 @@ require(["jquery", "el", "task"], function ($, el, task) {
     e.stopPropagation();
 
     currentSortMode = "newest";
-
     el.byTanggal.find("p").text("Terbaru");
 
     updateDropdownUI("newest");
     performSort("newest");
 
     el.isiBtnTanggal.addClass("hidden");
-    el.panahTanggal.attr("src", "assets/img/Arrow - Down 2 oren .png");
-
-    el.byTanggal.removeClass("text-gray-300 border-gray-400");
-    el.byTanggal.addClass("text-[#FF5F26] border-[#FF5F26]");
+    el.panahTanggal.attr("src", ICONS.arrowDownOrange);
+    setActiveButtonStyle();
   });
 
   $(document).on("click", function (e) {
     if (!$(e.target).closest("#byTanggal, #isiBtnTanggal").length) {
       el.isiBtnTanggal.addClass("hidden");
-      el.panahTanggal.attr("src", "assets/img/Arrow - Down 2 oren .png");
+      el.panahTanggal.attr("src", ICONS.arrowDownOrange);
+
+      // Restore button style based on sort mode
+      if (currentSortMode !== "none") {
+        setActiveButtonStyle();
+      } else {
+        resetButtonStyle();
+      }
     }
   });
 
   el.btnResults.on("click", () => {
-    const up = "assets/img/Arrow - Up 2.png";
-    const right = "assets/img/Arrow - Right 2.png";
-    el.arrowFooter.attr("src", el.arrowFooter.attr("src") === up ? right : up);
+    const currentSrc = el.arrowFooter.attr("src");
+    const newSrc =
+      currentSrc === ICONS.arrowUpGray ? ICONS.arrowRight : ICONS.arrowUpGray;
+
+    el.arrowFooter.attr("src", newSrc);
     el.results.toggleClass("hidden");
   });
 });

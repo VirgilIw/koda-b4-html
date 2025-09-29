@@ -285,9 +285,21 @@ define(["jquery", "el", "moment"], function ($, el, moment) {
 
   const handleToggleSubtaskComplete = function (e) {
     e.preventDefault();
-    const taskIndex = $(this).closest(".this-task").data("index");
+
+    const $container = $(this).closest(".px-8");
+    const taskIndex = $container.find(".this-task").data("index");
     const subIndex = $(this).closest(".subtaskItem").data("subindex");
+
+    if (taskIndex === undefined || subIndex === undefined) {
+      console.error("Invalid index:", { taskIndex, subIndex });
+      return;
+    }
+
     const { subtasks } = newInputsTask[taskIndex];
+    if (!subtasks || !subtasks[subIndex]) {
+      console.error("Subtask not found");
+      return;
+    }
 
     subtasks[subIndex].selesai = !subtasks[subIndex].selesai;
     saveToStorage();
